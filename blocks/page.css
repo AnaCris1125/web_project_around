@@ -1,0 +1,13 @@
+.page {
+  max-width: 320px;
+  width: 100%;
+  height: 2814px;
+}
+
+@media screen and (min-width: 1280px) {
+  .page {
+    max-width: 1280px;
+    width: 100%;
+    height: 1217px;
+  }
+}

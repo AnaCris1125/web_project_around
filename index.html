@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="sprint 7 Around the US" />
+    <meta name="author" content="Ana Cristina Mejia Lalinde" />
+    <meta name="keywords" content="around" />
+    <title>Around the US</title>
+    <link rel="stylesheet" type="text/css" href="pages/index.css" />
+    <link rel="shortcut icon" href="favicon.ico" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <img src="images/Vector.png" alt="vector around" class="header-image" />
+        <img
+          src="images/Line.png"
+          alt="imagen linea"
+          class="header-image__line"
+        />
+      </header>
+      <main class="content">
+        <section class="profile">
+          <img
+            src="images/Avatar.png"
+            alt="foto de perfil"
+            class="profile-avatar"
+            loading="lazy"
+          />
+          <div class="profile-info">
+            <div>
+              <p class="profile-info__name">Jacques Cousteau</p>
+              <img
+                class="profile-info__edit_button"
+                src="/images/edit-button.png"
+                alt="Icono editar perfil"
+                id="edit-button"
+              />
+            </div>
+            <p class="profile-info__ocupation">Explorador</p>
+            <img
+              src="/images/add-button.png"
+              alt="icono adicionar informacion"
+              class="profile-info__add_button"
+            />
+          </div>
+        </section>
+        <section class="element">
+          <div class="element-card">
+            <img
+              class="element-card__image"
+              src="images/valle-de-josemite.jpg"
+              alt="foto Valle de Josemite"
+              loading="lazy"
+            />
+            <div class="element-card__content">
+              <h2 class="element-card__place">Valle de Yosemite</h2>
+              <img
+                class="element-card__button_like"
+                src="/images/Group (1).svg"
+                alt="Boton like"
+              />
+            </div>
+          </div>
+          <div class="element-card">
+            <img
+              class="element-card__image"
+              src="images/lago-louise.png"
+              alt="foto Lago Louise"
+              loading="lazy"
+            />
+            <div class="element-card__content">
+              <h2 class="element-card__place">Lago Louise</h2>
+              <img
+                class="element-card__button_like"
+                src="/images/Group (1).svg"
+                alt="Boton like"
+              />
+            </div>
+          </div>
+          <div class="element-card">
+            <img
+              class="element-card__image"
+              src="images/montañas-calvas.png"
+              alt="foto Montañas Calvas"
+              loading="lazy"
+            />
+            <div class="element-card__content">
+              <h2 class="element-card__place">Montañas Calvas</h2>
+              <img
+                class="element-card__button_like"
+                src="/images/Group (1).svg"
+                alt="Boton like"
+              />
+            </div>
+          </div>
+          <div class="element-card">
+            <img
+              class="element-card__image"
+              src="images/latemar.png"
+              alt="foto Latemar"
+              loading="lazy"
+            />
+            <div class="element-card__content">
+              <h2 class="element-card__place">Latemar</h2>
+              <img
+                class="element-card__button_like"
+                src="/images/Group (1).svg"
+                alt="Boton like"
+              />
+            </div>
+          </div>
+          <div class="element-card">
+            <img
+              class="element-card__image"
+              src="images/vanois-national.png"
+              alt="foto Vanois National"
+              loading="lazy"
+            />
+            <div class="element-card__content">
+              <h2 class="element-card__place">Vanois National...</h2>
+              <img
+                class="element-card__button_like"
+                src="/images/Group (1).svg"
+                alt="Boton like"
+              />
+            </div>
+          </div>
+          <div class="element-card">
+            <img
+              class="element-card__image"
+              src="images/lago-di-braies.png"
+              alt="foto Lago di Braies"
+              loading="lazy"
+            />
+            <div class="element-card__content">
+              <h2 class="element-card__place">Lago di Braies</h2>
+              <img
+                class="element-card__button_like"
+                src="/images/Group (1).svg"
+                alt="Boton like"
+              />
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="footer">
+        <p class="footer-copyright">&#169; 2021 Around The U.S.</p>
+      </footer>
+    </div>
+    <div class="popup">
+      <div class="popup__overlay"></div>
+      <div>
+        <form class="popup__form">
+          <fieldset class="popup__fieldset">
+            <button type="button" class="popup__close-button" id="close-button">
+              <img
+                src="/images/close-x-svgrepo-com (1).svg"
+                alt="Boton de cerrar"
+                class="popup__close-icon"
+              />
+            </button>
+            <h2 class="popup__title">Editar perfil</h2>
+            <input
+              type="text"
+              class="popup__input"
+              placeholder="Nombre"
+              id="name"
+              required
+            />
+            <input
+              type="text"
+              class="popup__input"
+              placeholder="Acerca de mi"
+              id="about"
+              required
+            />
+          </fieldset>
+          <button class="popup__save-button" type="submit">Guardar</button>
+        </form>
+      </div>
+    </div>
+    <script src="./script/index.js"></script>
+  </body>
+</html>

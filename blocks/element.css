@@ -1,0 +1,83 @@
+.element {
+  max-width: 282px;
+  width: 100%;
+  height: 2266px;
+  margin-left: 19px;
+}
+
+.element-card {
+  max-width: 282px;
+  width: 100%;
+  height: 361px;
+  border-radius: 10px 10px 10px 10px;
+  background-color: white;
+  margin-bottom: 19px;
+}
+
+.element-card__image {
+  max-width: 282px;
+  width: 100%;
+  height: 282px;
+  margin-bottom: 10px;
+}
+
+.element-card__content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: white;
+  width: 246px;
+  height: 23px;
+}
+
+.element-card__place {
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 29.05px;
+  background-color: white;
+}
+
+.element-card__button_like {
+  width: 21px;
+  height: 19px;
+  background-color: white;
+}
+
+.element-card__button_like:hover {
+  background-color: gray;
+}
+
+.element-card__button_like:active {
+  background-color: black;
+}
+
+@media screen and (min-width: 1280px) {
+  .element {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 880px;
+    width: 100%;
+    height: 743px;
+    margin-left: 200px;
+    gap: 10px;
+    margin-top: 100px;
+  }
+
+  .element-card {
+    max-width: 282px;
+    width: 100%;
+    height: 361px;
+    border-radius: 10px 10px 10px 10px;
+    background-color: white;
+    margin-bottom: 0;
+  }
+
+  .element-card__content {
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    width: 246px;
+    height: 23px;
+  }
+}
