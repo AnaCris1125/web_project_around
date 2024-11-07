@@ -12,7 +12,7 @@ Display: Grid
 Java Script
 Formularios
 
-URL github pages:
+URL github pages: https://anacris1125.github.io/web_project_around/
 
 Ana Cristina Mejia Lalinde
 
