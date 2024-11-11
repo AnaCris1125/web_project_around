@@ -4,14 +4,14 @@
   color: #ffffff;
 }
 
-.profile-avatar {
+.profile__avatar {
   width: 120px;
   height: 120px;
   margin-top: 30px;
   margin-left: 100px;
 }
 
-.profile-info__name {
+.profile__info-name {
   font-family: Inter;
   font-size: 22px;
   font-weight: 500;
@@ -22,7 +22,7 @@
   overflow: hidden;
 }
 
-.profile-info__ocupation {
+.profile__info-ocupation {
   font-family: Inter;
   font-size: 14px;
   font-weight: 400;
@@ -32,7 +32,7 @@
   overflow: hidden;
 }
 
-.profile-info__edit_button {
+.profile__edit-button {
   cursor: pointer;
   color: #ffffff;
   width: 18px;
@@ -42,11 +42,11 @@
   left: 254px;
 }
 
-.profile-info__edit_button:hover {
+.profile__edit-button:hover {
   opacity: 0.7;
 }
 
-.profile-info__add_button {
+.profile__add-button {
   cursor: pointer;
   max-width: 282px;
   width: 100%;
@@ -58,7 +58,7 @@
   border-radius: 2px 0px 0px 0px;
 }
 
-.profile-info__add_button:hover {
+.profile__add-button:hover {
   opacity: 0.7;
 }
 
@@ -69,14 +69,14 @@
     width: 100%;
     height: 120px;
   }
-  .profile-avatar {
+  .profile__avatar {
     width: 120px;
     height: 120px;
     margin-left: 200px;
   }
 
 
-  .profile-info__name {
+  .profile__info-name {
     font-family: Inter;
     font-size: 42px;
     font-weight: 500;
@@ -87,7 +87,7 @@
     text-align: left;
   }
 
-  .profile-info__ocupation {
+  .profile__info-ocupation {
     font-family: Inter;
     font-size: 18px;
     font-weight: 400;
@@ -99,7 +99,7 @@
 
     
   }
-  .profile-info__edit_button {
+  .profile__edit-button {
     cursor: pointer;
     width: 24px;
     height: 24px;
@@ -108,7 +108,7 @@
     left: 725px;
   }
 
-  .profile-info__add_button {
+  .profile__add-button {
     position: absolute;
     cursor: pointer;
     max-width: 150px;

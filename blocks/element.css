@@ -5,7 +5,7 @@
   margin-left: 19px;
 }
 
-.element-card {
+.element__card {
   max-width: 282px;
   width: 100%;
   height: 361px;
@@ -14,14 +14,14 @@
   margin-bottom: 19px;
 }
 
-.element-card__image {
+.element__card-image {
   max-width: 282px;
   width: 100%;
   height: 282px;
   margin-bottom: 10px;
 }
 
-.element-card__content {
+.element__content {
   display: flex;
   justify-content: space-between;
   background-color: white;
@@ -30,7 +30,7 @@
   height: 23px;
 }
 
-.element-card__place {
+.element__place {
   justify-content: left;
   font-family: Inter;
   font-size: 24px;
@@ -43,7 +43,7 @@
   white-space: nowrap;
 }
 
-.element-card__button_like {
+.element__like-button {
   position: relative;
   left: 25px;
   width: 21px;
@@ -52,11 +52,11 @@
 
 }
 
-.element-card__button_like:hover {
+.element__like-button:hover {
   opacity: 0.5;
 }
 
-.element-card__button_like:active {
+.element__like-button:active {
   background-color: black;
 }
 
@@ -72,7 +72,7 @@
     margin-top: 100px;
   }
 
-  .element-card {
+  .element__card {
     max-width: 282px;
     width: 100%;
     height: 361px;
@@ -81,14 +81,14 @@
   }
 
  
-  .element-card__content {
+  .element__content {
     display: flex;
     justify-content: space-between;
     width: 246px;
     height: 23px;
   }
 
-  .element-card__place {
+  .element__place {
     font-family: Inter;
     font-size: 24px;
     font-weight: 900;
