@@ -36,6 +36,9 @@
   font-weight: 900;
   line-height: 29.05px;
   background-color: white;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .element-card__button_like {
