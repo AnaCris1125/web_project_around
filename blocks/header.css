@@ -14,7 +14,9 @@
   .header {
     display: block;
     flex-direction: row;
+    text-align: left; 
   }
+
   .header__image {
     max-width: 173px;
     height: 33px;
@@ -30,6 +32,6 @@
     margin-top: 50px;
     margin-bottom: 20px;
     margin-left: 200px;
-    border: 1px solid #545454;
+    border: 1px solid #545454; 
   }
 }

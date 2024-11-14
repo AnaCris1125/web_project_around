@@ -8,8 +8,8 @@ let popup = document.querySelector(".popup");
 const nameInput = document.querySelector("#name");
 const aboutInput = document.querySelector("#about");
 
-const userName = document.querySelector(".profile-info__name");
-const userAbout = document.querySelector(".profile-info__ocupation");
+const userName = document.querySelector(".profile__info-name");
+const userAbout = document.querySelector(".profile__info-ocupation");
 
 function openPopup() {
   initForm();
