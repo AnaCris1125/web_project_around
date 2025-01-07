@@ -46,141 +46,48 @@
             />
           </div>
         </section>
-        <section class="element">
-          <div class="element__card">
-            <img
-              class="element__card-image"
-              src="images/valle-de-josemite.jpg"
-              alt="foto Valle de Josemite"
-              loading="lazy"
-            />
-            <div class="element__content">
-              <h2 class="element__place">Valle de Yosemite</h2>
-              <img
-                class="element__like-button"
-                src="/images/group.svg"
-                alt="Boton like"
-              />
-            </div>
-          </div>
-          <div class="element__card">
-            <img
-              class="element__card-image"
-              src="images/lago-louise.png"
-              alt="foto Lago Louise"
-              loading="lazy"
-            />
-            <div class="element__content">
-              <h2 class="element__place">Lago Louise</h2>
-              <img
-                class="element__like-button"
-                src="/images/group.svg"
-                alt="Boton like"
-              />
-            </div>
-          </div>
-          <div class="element__card">
-            <img
-              class="element__card-image"
-              src="images/montañas-calvas.png"
-              alt="foto Montañas Calvas"
-              loading="lazy"
-            />
-            <div class="element__content">
-              <h2 class="element__place">Montañas Calvas</h2>
-              <img
-                class="element__like-button"
-                src="/images/group.svg"
-                alt="Boton like"
-              />
-            </div>
-          </div>
-          <div class="element__card">
-            <img
-              class="element__card-image"
-              src="images/latemar.png"
-              alt="foto Latemar"
-              loading="lazy"
-            />
-            <div class="element__content">
-              <h2 class="element__place">Latemar</h2>
-              <img
-                class="element__like-button"
-                src="/images/group.svg"
-                alt="Boton like"
-              />
-            </div>
-          </div>
-          <div class="element__card">
-            <img
-              class="element__card-image"
-              src="images/vanois-national.png"
-              alt="foto Vanois National"
-              loading="lazy"
-            />
-            <div class="element__content">
-              <h2 class="element__place">Vanois National Park</h2>
-              <img
-                class="element__like-button"
-                src="/images/group.svg"
-                alt="Boton like"
-              />
-            </div>
-          </div>
-          <div class="element__card">
-            <img
-              class="element__card-image"
-              src="images/lago-di-braies.png"
-              alt="foto Lago di Braies"
-              loading="lazy"
-            />
-            <div class="element__content">
-              <h2 class="element__place">Lago di Braies</h2>
-              <img
-                class="element__like-button"
-                src="/images/group.svg"
-                alt="Boton like"
-              />
-            </div>
-          </div>
-        </section>
+        <section class="cards">
+          <div class="cards__container">
+            <template id="card-template">
+              <div class="cards__item">
+                <img class="cards__item-delete" src="/images/Trash.svg" alt="Icono eliminar">
+                <img class="cards__item-img" alt="Foto de referencia">
+                <div class="cards__item-info">
+                  <p class="cards__item-name"></p>
+                  <img
+                  class="cards__item-like"
+                  src="/images/group.svg"
+                  alt="Boton like"  
+                  loading="lazy"
+                />
+                </div>
+                </div>
+            </template>
+              </div>
+        </section>   
       </main>
       <footer class="footer">
         <p class="footer-copyright">&#169; 2021 Around The U.S.</p>
       </footer>
     </div>
-    <div class="popup">
-      <div class="popup__overlay"></div>
-      <div>
-        <form class="popup__form">
-          <fieldset class="popup__fieldset">
-            <button type="button" class="popup__close-button" id="close-button">
-              <img
-                src="/images/close-x-svgrepo-com.svg"
-                alt="Boton de cerrar"
-                class="popup__close-icon"
-              />
-            </button>
-            <h2 class="popup__title">Editar perfil</h2>
-            <input
-              type="text"
-              class="popup__input"
-              placeholder="Nombre"
-              id="name"
-              required
-            />
-            <input
-              type="text"
-              class="popup__input"
-              placeholder="Acerca de mi"
-              id="about"
-              required
-            />
-          </fieldset>
-          <button class="popup__save-button" type="submit">Guardar</button>
-        </form>
-      </div>
+   <section class="popup">
+    <div class="pop__container">
+      <img class="popup-close" src="/images/close-x-svgrepo-com.svg" alt="icono cerrar formulario">
+      <form class="popup__form">
+        <h2 class="popup__form-title"></h2>
+        <input class="popup__form-first" type="text" id="first" name="first">
+        <input class="popup__form-second"   type="text" name="second" id="second">
+        <button class="popup__form-button"></button>
+      </form>
     </div>
+   </section>
+   <section class="bigimage">
+    <img class="bigimage-close" src="/images/close-x-svgrepo-com.svg" alt="Icono cerrar imagen">
+    <div class="bigimage__form">
+      <img class="bigimage-ils" alt="Foto de referencia">
+      <p class="bigimage-title"></p>
+    </div>
+   </section>
     <script src="./scripts/index.js"></script>
   </body>
 </html>

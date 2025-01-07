@@ -1,8 +1,16 @@
-.heade__image {
+  .header {
+  display: block;
+  flex-direction: row;
+  margin-top: 27px;
+  
+  }
+
+.header__image {
   max-width: 126px;
   height: 24px;
-  margin-top: 28px;
-  margin-left: 27px;
+  margin-left: 28px;
+  
+ 
 }
 
 .header__image-line {
@@ -31,7 +39,7 @@
     opacity: 0.7px;
     margin-top: 50px;
     margin-bottom: 20px;
-    margin-left: 200px;
+    margin-left: 180px;
     border: 1px solid #545454; 
   }
 }
