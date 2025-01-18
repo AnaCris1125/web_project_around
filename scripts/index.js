@@ -18,7 +18,7 @@ const popupFormButton = document.querySelector(".popup__form-button");
 
 const bigImage = document.querySelector(".bigimage");
 const bigImageIlustration = document.querySelector(".bigimage-ils");
-const bigImageTitle = document.querySelector(".bigimage-title");
+const bigImageRef = document.querySelector(".bigimage-title");
 const closeBigImage = document.querySelector(".bigimage-close");
 
 
@@ -57,11 +57,16 @@ initialCards.forEach((card) => {
 }
 );
 
-function toggleOpenBigImage(evt) {
+ const toggleOpenBigImage = (card) => {
+
   bigImage.classList.toggle("bigimage__opened");
-  bigImageIlustration.src = evt.target.src;
-  bigImageTitle.innerText = evt.target.name;
+  bigImageIlustration.src = card.link;
+
+
+  bigImageRef.textContent = card.name;
+    
 }
+
 
 
 function createCard(card) {
@@ -69,14 +74,19 @@ function createCard(card) {
   cardElm.querySelector(".cards__item-img").src = card.link;
   cardElm.querySelector(".cards__item-name").textContent = card.name;
 
+  bigImageRef.textContent = card.name;
+  
+
   deleteItemTrashButton(cardElm);
   toggleItemHeartButton(cardElm);
 
+
   const image = cardElm.querySelector(".cards__item-img");
-  const name = cardElm.querySelector(".cards__item-name");
-  image.addEventListener("click", toggleOpenBigImage);  
-  name.addEventListener("click", toggleOpenBigImage);
- 
+  image.addEventListener("click", () => toggleOpenBigImage(card)); 
+
+  
+  // reference.addEventListener("click", toggleOpenBigImage);
+
 
   return cardElm;
 }
