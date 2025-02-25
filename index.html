@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="sprint 7 Around the US" />
+    <meta name="description" content="sprint 9 Around the US" />
     <meta name="author" content="Ana Cristina Mejia Lalinde" />
     <meta name="keywords" content="around" />
     <title>Around the US</title>
@@ -69,15 +69,17 @@
       <footer class="footer">
         <p class="footer-copyright">&#169; 2021 Around The U.S.</p>
       </footer>
-    </div>
+    </div>  
    <section class="popup">
     <div class="pop__container">
       <img class="popup-close" src="./images/close.svg" alt="icono cerrar formulario">
-      <form class="popup__form">
-        <h2 class="popup__form-title"></h2>
-        <input class="popup__form-first" type="text" id="first" name="first">
-        <input class="popup__form-second"   type="text" name="second" id="second">
-        <button class="popup__form-button"></button>
+      <form class="popup__form" novalidate>
+          <h2 class="popup__form-title"></h2>
+          <input class="popup__input popup__form-first" id="name" name="name" minlength="2" maxlength="40" required>
+          <span class="popup__input_error" id="name-error"></span>
+          <input class="popup__input popup__form-second" id="ocupation" name="ocupation" minlength="2" maxlength="200" required>
+          <span class="popup__input_error" id="ocupation-error"></span>
+          <button id="button" class="form__submit popup__button popup__form-button button"></button>
       </form>
     </div>
    </section>
@@ -89,5 +91,6 @@
     </div>
    </section>
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/validate.js"></script>
   </body>
 </html>

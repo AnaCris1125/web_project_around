@@ -28,6 +28,7 @@
   position: relative;
   width: 282px;
   height: 322px;
+
 }
 
 
@@ -40,8 +41,8 @@
   line-height: 29.05px;
   text-align: left;
   background-color: #ffffff;
-  margin-bottom: 70px;
-  padding-top: 30px;
+  margin-bottom: 45px;
+  padding-top: 20px;
   margin-left: 20px;
 }
 
@@ -60,8 +61,20 @@
 }
 
 
-.popup__form-first, .popup__form-second {
-  width: 238px;
+.popup__form-first,
+.popup__form-second {
+  width: 100%;
+  height: 27px;
+  font-size: 14px;
+  line-height: 17px;
+  margin: 15px 0 0 0;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 1px solid#c4c4c4;
+  box-sizing: border-box;
+  
+  /* width: 238px;
   height: 26px;
   text-align: left;
   border: 0;
@@ -71,10 +84,30 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 16.94px;
-  text-align: left;
   margin-bottom: 20px;
-  margin-left: 20px;
+  box-sizing: border-box; */
+  
+
 }
+
+.popup__input:hover {
+  border-bottom-color: #000;
+}
+
+.popup__input:focus {
+  border-bottom-color: #007DFF;
+
+}
+
+.popup__input:valid {
+  border-bottom: 1px solid green;
+
+}
+
+.popup__input:invalid {
+  border-bottom: 1px solid red;
+}
+
 
 .popup__form-button {
   width: 238px;
@@ -85,7 +118,7 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 16.94px;
-  margin-top: 30px;
+  margin-top: 15px;
   margin-left: 20px;
   cursor: pointer;
 }
@@ -94,6 +127,31 @@
   opacity: 0.7;
   border: none;
 }
+
+
+
+.popup__input_error {
+  color: red;
+  background-color: white;
+  margin-left: 35px;
+  width: 100%;
+  height: 16px;
+  line-height: 10px;
+  font-size: 12px;
+}
+
+
+.popup__input_type_error {
+  border-bottom: 2px solid red;
+  
+}
+
+.popup__button_disabled {
+  opacity: 0.1;
+  pointer-events: none;
+
+}
+
 
 @media screen and (min-width: 1280px) {
   .popup {
@@ -138,8 +196,8 @@
     line-height: 29.05px;
     text-align: left;
     background-color: #ffffff;
-    margin-bottom: 70px;
-    padding-top: 30px;
+    margin-bottom: 45px;
+    padding-top: 40px;
     margin-left: 35px;
   }
 
@@ -152,7 +210,8 @@
   }
 
 
-  .popup__form-first, .popup__form-second {
+  .popup__form-first,
+  .popup__form-second {
     width: 358px;
     height: 27.26px;
     text-align: left;
@@ -163,10 +222,8 @@
     font-size: 14px;
     font-weight: 400;
     line-height: 16.94px;
-    text-align: left;
-    margin-bottom: 20px;
     margin-left: 35px;
-
+    box-sizing: border-box;
   }
 
   .popup__form-button {
@@ -178,7 +235,7 @@
     font-size: 14px;
     font-weight: 400;
     line-height: 16.94px;
-    margin-top: 30px;
+    margin-top: 20px;
     margin-left: 35px;
   }
 }
