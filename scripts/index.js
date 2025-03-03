@@ -57,7 +57,7 @@ initialCards.forEach((card) => {
 }
 );
 
- const toggleOpenBigImage = (card) => {
+const toggleOpenBigImage = (card) => {
 
   bigImage.classList.toggle("bigimage__opened");
   bigImageIlustration.src = card.link;
@@ -65,7 +65,7 @@ initialCards.forEach((card) => {
 
   const reference = document.querySelector(".bigimage-title");
   bigImageRef.textContent = card.name;
-    
+
 }
 
 
@@ -76,16 +76,16 @@ function createCard(card) {
   cardElm.querySelector(".cards__item-name").textContent = card.name;
 
   bigImageRef.textContent = card.name;
-  
+
 
   deleteItemTrashButton(cardElm);
   toggleItemHeartButton(cardElm);
 
 
   const image = cardElm.querySelector(".cards__item-img");
-  image.addEventListener("click", () => toggleOpenBigImage(card)); 
+  image.addEventListener("click", () => toggleOpenBigImage(card));
 
-  
+
 
   return cardElm;
 }
@@ -115,8 +115,8 @@ function openEditAddPopup(evt) {
       firstInput.type = "text";
       secondInput.placeholder = "Ocupación";
       secondInput.type = "text";
-      firstInput.value = profileName.textContent;
-      secondInput.value = profileAbout.textContent;
+      firstInput.value = "";
+      secondInput.value = "";
       break;
     case "profile__add-button":
       popupFormTitle.textContent = "Nuevo lugar";
@@ -156,15 +156,32 @@ function formSubmit(evt) {
 
 }
 
-  popup.addEventListener("keydown", function(evt) {
-    if (
+// Cerrar popup dando click en el boton de cerrar
+function formBigImageClose(evt) {
+  const className = evt.currentTarget.className;
+  switch (className) {
+    case "popup-close":
+
+      break;
+    case "bigimage-close":
+
+      break;
+  }
+
+  popup.classList.remove("popup__opened");
+  bigImage.classList.remove("bigimage__opened");
+}
+
+// Cerrar popup presionando ESC
+document.addEventListener("keydown", function (evt) {
+  if (
     evt.key === "Escape" &&
     popup.classList.contains("popup__opened")
   ) {
     handleTogglePopup(popup)
   } else if (
     evt.key === "Escape" &&
-    bigImage.classList.contains("popup__opened")
+    bigImage.classList.contains("bigimage__opened")
   ) {
     handleTogglePopup(bigImage);
   }
@@ -173,36 +190,45 @@ function formSubmit(evt) {
 function handleTogglePopup(popupElement) {
   popupElement.classList.toggle("popup__opened");
   
+
 }
-   
+
+// Cerrar popup haciendo click en la superposición
+
 const setPopupEventListeners = (settings) => {
-  const popupList = Array.from(document.querySelectorAll(settings.popupSelector)
-);
-popupList.forEach((popupElement, settings, bigImageElement) => {
-  popupElement.addEventListener("click", function(evt) {
-    if (evt.target.classList.contains(settings.popupOpenedClass)) {
-      handleTogglePopup(popup);
-  bigImageElement.addEventListener("click", function(evt) {
-    if (evt.target.classList.contains(settings.bigImageOpenedClass)) {
-      handleTogglePopup(bigImage);
-    }
+  const popupList = Array.from(document.querySelectorAll(settings.popupSelector));
+  const bigImageList = Array.from(document.querySelectorAll(settings.bigImageSelector)
+  );
+
+  popupList.forEach((popupElement) => {
+    popupElement.addEventListener("click", function (evt) {
+      if (!evt.target.classList.contains(settings.popupOpenedClass)) {
+        handleTogglePopup(evt.target);
+      }
+    });
+  });
+  bigImageList.forEach((bigImageElement) => {
+    bigImageElement.addEventListener("click", function (evt) {
+      if (!evt.target.classList.contains(settings.bigImageOpenedClass)) {
+        bigImage.classList.remove("bigimage__opened")
+      }
+    });
   });
 }
+
+  setPopupEventListeners({
+    popupSelector: ".popup",
+    bigImageSelector: ".bigimage",
+    popupOpenedClass: ".popup__opened",
+    bigImageOpenedClass: ".bigimage__opened",
   });
-});
-};
-  
-
-setPopupEventListeners({
-  popupSelector: ".popup",
-  popupOpenedClass: ".popup__opened",
-  bigImageOpenedClass: ".bigimage__opened",
-});
 
 
 
-editButton.addEventListener("click", openEditAddPopup);
-profileButton.addEventListener("click", openEditAddPopup);
-formElement.addEventListener("submit", formSubmit);
+  editButton.addEventListener("click", openEditAddPopup);
+  profileButton.addEventListener("click", openEditAddPopup);
+  formElement.addEventListener("submit", formSubmit);
+  closePopUpButton.addEventListener("click", formBigImageClose);
+  closeBigImage.addEventListener("click", formBigImageClose);
 
 
