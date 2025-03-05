@@ -178,20 +178,15 @@ document.addEventListener("keydown", function (evt) {
     evt.key === "Escape" &&
     popup.classList.contains("popup__opened")
   ) {
-    handleTogglePopup(popup)
+    popup.classList.remove("popup__opened")
   } else if (
     evt.key === "Escape" &&
     bigImage.classList.contains("bigimage__opened")
   ) {
-    handleTogglePopup(bigImage);
+    bigImage.classList.remove("bigimage__opened");
   }
 });
 
-function handleTogglePopup(popupElement) {
-  popupElement.classList.toggle("popup__opened");
-  
-
-}
 
 // Cerrar popup haciendo click en la superposición
 
@@ -202,15 +197,16 @@ const setPopupEventListeners = (settings) => {
 
   popupList.forEach((popupElement) => {
     popupElement.addEventListener("click", function (evt) {
-      if (!evt.target.classList.contains(settings.popupOpenedClass)) {
-        handleTogglePopup(evt.target);
+      if (evt.target.matches(settings.popupOpenedClass)) {
+        popup.classList.remove("popup__opened")
+        
       }
     });
   });
   bigImageList.forEach((bigImageElement) => {
     bigImageElement.addEventListener("click", function (evt) {
-      if (!evt.target.classList.contains(settings.bigImageOpenedClass)) {
-        bigImage.classList.remove("bigimage__opened")
+      if (evt.target.matches(settings.bigImageOpenedClass)) {
+        bigImage.classList.remove("bigimage__opened");
       }
     });
   });
