@@ -73,7 +73,7 @@
    <section class="popup">
     <div class="popup__container">
       <img class="popup-close" src="./images/close.svg" alt="icono cerrar formulario">
-      <form class="popup__form" novalidate>
+      <form class="popup__form" id="popup-form"     novalidate>
           <h2 class="popup__form-title"></h2>
           <input class="popup__input popup__form-first" id="name" name="name" minlength="2" maxlength="40" required>
           <span class="popup__input-error" id="name-error"></span>
@@ -90,7 +90,7 @@
       <p class="bigimage-title"></p>
     </div>
    </section>
-    <script src="./scripts/index.js"></script>
-    <script src="./scripts/validate.js"></script>
+    <script src="./scripts/index.js" type="module"></script>
+    <script src="./scripts/utils.js" type="module"></script>
   </body>
 </html>
