@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="sprint 9 Around the US" />
+    <meta name="description" content="sprint 10 Around the US" />
     <meta name="author" content="Ana Cristina Mejia Lalinde" />
     <meta name="keywords" content="around" />
     <title>Around the US</title>
@@ -72,13 +72,13 @@
     </div>  
    <section class="popup">
     <div class="popup__container">
-      <img class="popup-close" src="./images/close.svg" alt="icono cerrar formulario">
+      <img class="popup-close" id="popup-close" src="./images/close.svg" alt="icono cerrar formulario">
       <form class="popup__form" id="popup-form"     novalidate>
           <h2 class="popup__form-title"></h2>
-          <input class="popup__input popup__form-first" id="name" name="name" minlength="2" maxlength="40" required>
-          <span class="popup__input-error" id="name-error"></span>
-          <input class="popup__input popup__form-second" id="ocupation" name="ocupation" minlength="2" maxlength="200" required>
-          <span class="popup__input-error" id="ocupation-error"></span>
+          <input class="popup__input popup__form-first" name="first" minlength="2" maxlength="40" required>
+          <span class="popup__input-error" id="first-error"></span>
+          <input class="popup__input popup__form-second" name="second" minlength="2" maxlength="200" required>
+          <span class="popup__input-error" id="second-error"></span>
           <button id="button" class="popup__button"></button>
       </form>
     </div>
@@ -91,6 +91,5 @@
     </div>
    </section>
     <script src="./scripts/index.js" type="module"></script>
-    <script src="./scripts/utils.js" type="module"></script>
   </body>
 </html>

@@ -6,11 +6,11 @@ export default class Card {
         this._title = title;
         this._image = image;
     }
-    cloneTemplate() {
+    _cloneTemplate() {
         return cardTemplate.querySelector(".cards__item").cloneNode(true);
     }
 
-    setProperties() {
+    _setProperties() {
         this.cardImage = this.card.querySelector(".cards__item-img");
         this.cardImage.src = this._image;
         this.cardTitle = this.card.querySelector(".cards__item-name");
@@ -19,13 +19,13 @@ export default class Card {
     }
 
     generateCard() {
-        this.card = this.cloneTemplate();
-        this.setProperties();
-        this.setEventListeners();
+        this.card = this._cloneTemplate();
+        this._setProperties();
+        this._setEventListeners();
         return this.card;
     }
 
-    setEventListeners() {
+    _setEventListeners() {
         this.deleteButton = this.card.querySelector(".cards__item-delete");
         this.deleteButton.addEventListener("click", () => {
             this.card.remove();
