@@ -1,7 +1,9 @@
 import Card from "./Card.js";
 import { FormValidator } from "./FormValidator.js";
-import { Popup } from "./utils.js";
-import { PopupForm } from "./utils.js";
+import { PopupWithForm } from "./PopupWithForm.js";
+import { PopupWithImage } from "./PopupWithImage.js";
+import Section from "./Section.js";
+import UserInfo from "./UserInfo.js";
 
 
 const profileName = document.querySelector(".profile__info-name");
@@ -37,33 +39,68 @@ const items = [
 
 
 
-// Instancia para crear carta
-
-items.forEach(function (item) {
-  const card = new Card(item.name, item.link);
-  cardsContainer.append(card.getHtmlCard());
-})
-
-function addCardToPage(title, imageUrl) {
-  const newCard = new Card(title, imageUrl);
-  cardsContainer.appendChild(newCard.getHtmlCard());
-}
-
-
-  // Instancia de PopupForm 
-  const popupForm = new PopupForm(".popup", (formData) => {
-    if (popupForm.getTitle() === "Editar Perfil") {
-      profileName.textContent = formData.first;
-      profileAbout.textContent = formData.second;
-
-  } else if (popupForm.getTitle() === "Nuevo Lugar") {
-      const newCard = new Card(formData.first, formData.second);
-      cardsContainer.prepend(newCard.getHtmlCard()); 
- 
-  }
+// Instancia de UserInfo
+const userInfo = new UserInfo({
+  nameSelector: ".profile__info-name",
+  aboutSelector: ".profile__info-ocupation"
 });
 
-  popupForm.setEventListeners();
+
+
+
+ // Instancia de PopupWithForm 
+ const popupForm = new PopupWithForm(".popup", (formData) => {
+  if (popupForm.getTitle() === "Editar Perfil") {
+    profileName.textContent = formData.first;
+    profileAbout.textContent = formData.second;
+
+} else if (popupForm.getTitle() === "Nuevo Lugar") {
+    const newCard = new Card(formData.first, formData.second);
+    cardsContainer.prepend(newCard.getHtmlCard()); 
+
+}
+});
+
+popupForm.setEventListeners();
+
+
+
+ // Abrir los popup 
+ document.querySelector("#edit-button").addEventListener("click", () => {
+  popupForm.setFormConfig(editProfileConfig);
+  popupForm.open();
+  initValidation();
+});
+
+document.querySelector(".profile__add-button").addEventListener("click", () => {
+  popupForm.setFormConfig(addCardConfig);
+  popupForm.open();
+  initValidation(); 
+});
+
+// Instancia de PopupWithImage
+const popupImage = new PopupWithImage(".bigimage");
+popupImage.setEventListeners();
+
+document.querySelectorAll(".cards__item-img").forEach(image => {
+  image.addEventListener("click", () => {
+      const imageSrc = image.src;
+      const imageTitle = image.alt;
+      popupImage.open(imageSrc, imageTitle);
+  });
+});
+
+// Instancia de Section para manejar la galería de tarjetas
+const cardSection = new Section(
+  { items, renderer: (item) => {
+      const card = new Card(item.name, item.link, popupImage.open.bind(popupImage));
+      cardSection.addItem(card.generateCard());
+  }},
+  ".cards__container"
+);
+cardSection.renderItems();
+
+
 
   // Instancia del validador de formularios
   const formValidator = new FormValidator(".popup__form", {
@@ -105,18 +142,8 @@ function addCardToPage(title, imageUrl) {
     }
 }
 
-  // Abrir los popup 
-  document.querySelector("#edit-button").addEventListener("click", () => {
-      popupForm.setFormConfig(editProfileConfig);
-      popupForm.open();
-      initValidation();
-  });
 
-  document.querySelector(".profile__add-button").addEventListener("click", () => {
-      popupForm.setFormConfig(addCardConfig);
-      popupForm.open();
-      initValidation(); 
-  });
+ 
 
   
 
