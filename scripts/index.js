@@ -82,18 +82,11 @@ document.querySelector(".profile__add-button").addEventListener("click", () => {
 const popupImage = new PopupWithImage(".bigimage");
 popupImage.setEventListeners();
 
-document.querySelectorAll(".cards__item-img").forEach(image => {
-  image.addEventListener("click", () => {
-      const imageSrc = image.src;
-      const imageTitle = image.alt;
-      popupImage.open(imageSrc, imageTitle);
-  });
-});
 
 // Instancia de Section para manejar la galería de tarjetas
 const cardSection = new Section(
-  { items, renderer: (item) => {
-      const card = new Card(item.name, item.link, popupImage.open.bind(popupImage));
+  { items: items, renderer: (item) => {
+      const card = new Card(item.name, item.link, popupImage);
       cardSection.addItem(card.generateCard());
   }},
   ".cards__container"
