@@ -22,15 +22,21 @@
       </header>
       <main class="content">
         <section class="profile">
-          <img
+          <div class="profile__avatar-container">
+            <img
             src="./images/avatar.png"
             alt="foto de perfil"
             class="profile__avatar"
+            id="avatar"
             loading="lazy"
           />
+          <button class="profile__avatar-edit-icon">
+            <img src="/images/edit-avatar.png" alt="Icono editar">
+          </button>
+          </div>     
           <div class="profile__info">
             <div>
-              <p class="profile__info-name">Jacques Cousteau</p>
+              <p class="profile__info-name" id="name"></p>
               <img
                 class="profile__edit-button"
                 src="./images/editar.png"
@@ -38,7 +44,7 @@
                 id="edit-button"
               />
             </div>
-            <p class="profile__info-ocupation">Explorador</p>
+            <p class="profile__info-ocupation" id="about"></p>
             <img
               src="./images/agregar.png"
               alt="icono adicionar informacion"
@@ -48,6 +54,7 @@
         </section>
         <section class="cards">
           <div class="cards__container">
+            <ul class="cards__list"></ul>
             <template id="card-template">
               <div class="cards__item">
                 <img class="cards__item-delete" src="./images/trash.svg" alt="Icono eliminar">
@@ -70,7 +77,7 @@
         <p class="footer-copyright">&#169; 2025 Around The U.S.</p>
       </footer>
     </div>  
-   <section class="popup">
+   <section class="popup" id="edit-profile">
     <div class="popup__container">
       <img class="popup-close" id="popup-close" src="./images/close.svg" alt="icono cerrar formulario">
       <form class="popup__form" id="popup-form"     novalidate>
@@ -79,7 +86,20 @@
           <span class="popup__input-error" id="first-error"></span>
           <input class="popup__input popup__form-second" name="second" minlength="2" maxlength="200" required>
           <span class="popup__input-error" id="second-error"></span>
-          <button id="button" class="popup__button"></button>
+          <button id="button" class="popup__button" type="submit"></button>
+      </form>
+    </div>
+   </section>
+   <section class="popup" id="add-card">
+    <div class="popup__container">
+      <img class="popup-close" id="popup-close" src="./images/close.svg" alt="icono cerrar formulario">
+      <form class="popup__form" id="popup-form"     novalidate>
+          <h2 class="popup__form-title"></h2>
+          <input class="popup__input popup__form-first" type="text"   name="name" minlength="2" maxlength="40" required>
+          <span class="popup__input-error" id="first-error"></span>
+          <input class="popup__input popup__form-second" type="url" name="link" minlength="2" maxlength="200" required>
+          <span class="popup__input-error" id="second-error"></span>
+          <button id="button" class="popup__button" type="submit"></button>
       </form>
     </div>
    </section>
@@ -89,6 +109,22 @@
       <img class="bigimage-ils" src=" " alt="Foto de referencia">
       <p class="bigimage-title"></p>
     </div>
+   </section>
+   <section class="popup" id="popup-change-avatar">
+    <img class="popup-close" src="./images/close.svg" alt="Icono cerrar imagen">
+    <form class="popup__form" id="change-avatar-form" novalidate>
+      <h2 class="popup__form-title"></h2>
+      <input class="popup__input" name="avatar" type="url" placeholder="Enlace al avatar" required>
+      <span class="popup__input-error" id="avatar-error"></span>
+      <button class="popup__button" type="submit"></button>
+    </form>
+   </section>
+   <section class="popup" id="popup-delete-card">
+    <img class="popup-close" src="./images/close.svg" alt="Icono cerrar imagen">
+    <form class="popup__form" id="delete-card-form" novalidate>
+      <h2 class="popup__form-title">¿Estas seguro?</h2>
+      <button class="popup__button" type="submit">Si</button>
+    </form>
    </section>
     <script src="./pages/index.js" type="module"></script>
   </body>

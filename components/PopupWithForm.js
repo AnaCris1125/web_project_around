@@ -23,6 +23,10 @@ export class PopupWithForm extends Popup {
         return this._formTitle ? this._formTitle.textContent : "";
     }
 
+    get submitButton() {
+        return this._submitButton;
+      }
+
     setFormConfig({ title, placeholders, inputNames, buttonText }) {
         if (this._formTitle) {
             this._formTitle.textContent = title;
@@ -30,14 +34,15 @@ export class PopupWithForm extends Popup {
         this._submitButton.textContent = buttonText;
 
         this._inputList.forEach((input, index) => {
-            input.placeholder = placeholders[index];
-            input.name = inputNames[index];
-            if (title === "Nuevo Lugar" && index === 1) {
-                input.type = "url";
+            input.placeholder = placeholders[index] || "";
+            input.name = inputNames[index] || "";
+          
+            if (input.name === "avatar" || input.name === "link") {
+              input.type = "url";
             } else {
-                input.type = "text";
+              input.type = "text";
             }
-        });
+          });
     }
 
 
@@ -47,7 +52,7 @@ export class PopupWithForm extends Popup {
             event.preventDefault();
             const formData = this._getInputValues();
             this._handleFormSubmit(formData);
-            this.close();
+           
         });
     }
 
