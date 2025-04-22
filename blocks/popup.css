@@ -53,13 +53,12 @@
 }
 
 
-.popup__form-first,
-.popup__form-second {
+.popup__input {
   width: 238px;
   height: 26px;
   font-size: 14px;
   line-height: 17px;
-  margin: 5px 0px 5px 15px;
+  margin: 5px 0px 5px 20px;
   border-top: 0;
   border-left: 0;
   border-right: 0;
@@ -179,8 +178,7 @@
   }
 
 
-  .popup__form-first,
-  .popup__form-second {
+  .popup__input{
     width: 280px;
     height: 27px;
     font-size: 12px;
@@ -266,8 +264,7 @@
   }
 
 
-  .popup__form-first,
-  .popup__form-second {
+  .popup__input{
     width: 358px;
     height: 27px;
     font-size: 16px;

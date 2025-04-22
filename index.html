@@ -80,11 +80,11 @@
    <section class="popup" id="edit-profile">
     <div class="popup__container">
       <img class="popup-close" id="popup-close" src="./images/close.svg" alt="icono cerrar formulario">
-      <form class="popup__form" id="popup-form"     novalidate>
+      <form class="popup__form" id="popup-form-edit-profile" name="edit-profile" novalidate>
           <h2 class="popup__form-title"></h2>
-          <input class="popup__input popup__form-first" name="first" minlength="2" maxlength="40" required>
+          <input class="popup__input popup__form-first" id="first" name="first" minlength="2" maxlength="40" required>
           <span class="popup__input-error" id="first-error"></span>
-          <input class="popup__input popup__form-second" name="second" minlength="2" maxlength="200" required>
+          <input class="popup__input popup__form-second" id="second" name="second" minlength="2" maxlength="200" required>
           <span class="popup__input-error" id="second-error"></span>
           <button id="button" class="popup__button" type="submit"></button>
       </form>
@@ -93,12 +93,12 @@
    <section class="popup" id="add-card">
     <div class="popup__container">
       <img class="popup-close" id="popup-close" src="./images/close.svg" alt="icono cerrar formulario">
-      <form class="popup__form" id="popup-form"     novalidate>
+      <form class="popup__form" id="popup-form-add-card" name="add-card" novalidate>
           <h2 class="popup__form-title"></h2>
-          <input class="popup__input popup__form-first" type="text"   name="name" minlength="2" maxlength="40" required>
-          <span class="popup__input-error" id="first-error"></span>
-          <input class="popup__input popup__form-second" type="url" name="link" minlength="2" maxlength="200" required>
-          <span class="popup__input-error" id="second-error"></span>
+          <input class="popup__input popup__form-first" type="text" id="name"  name="name" minlength="2" maxlength="40" required>
+          <span class="popup__input-error" id="name-error"></span>
+          <input class="popup__input popup__form-second" type="url" id="link" name="link" minlength="2" maxlength="200" required>
+          <span class="popup__input-error" id="link-error"></span>
           <button id="button" class="popup__button" type="submit"></button>
       </form>
     </div>
@@ -112,9 +112,9 @@
    </section>
    <section class="popup" id="popup-change-avatar">
     <img class="popup-close" src="./images/close.svg" alt="Icono cerrar imagen">
-    <form class="popup__form" id="change-avatar-form" novalidate>
+    <form class="popup__form" id="popup-form-change-avatar" name="change-avatar" novalidate>
       <h2 class="popup__form-title"></h2>
-      <input class="popup__input" name="avatar" type="url" placeholder="Enlace al avatar" required>
+      <input class="popup__input" name="avatar" id="avatar" type="url" placeholder="Enlace al avatar" minlength="2" maxlength="40" required>
       <span class="popup__input-error" id="avatar-error"></span>
       <button class="popup__button" type="submit"></button>
     </form>

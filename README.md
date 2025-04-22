@@ -1,10 +1,11 @@
 Poyecto 11: Web Project Around U.S.
 
-La pagina web del proyecto around US es el onceavo proyecto en el programa de Desarrollo Web de Triple Ten. Fue creado utilizando JAVA Script.
+La pagina web del proyecto around US es el doceavo proyecto en el programa de Desarrollo Web de Triple Ten. Fue creado utilizando JAVA Script.
 
 Caracteristicas del proyecto
 
-Programación orientada a objetos avanzado (Poo)
+- Programacion asincrona.
+- APIs.
 
 
 

@@ -12,10 +12,6 @@ import { renderLoading } from "../components/utils.js";
 const profileName = document.querySelector(".profile__info-name");
 const profileAbout = document.querySelector(".profile__info-ocupation");
 const cardsContainer = document.querySelector(".cards__container");
-// const avatarInput = document.querySelector('input[name="avatar"]');
-// const newAvatarUrl = avatarInput.value;
-
-
 
 
 const api = new Api({
@@ -45,7 +41,7 @@ popupImage.setEventListeners();
 let userId;
 
 api.getUserInfo().then(function (user) {
-  userId = user.id;
+  userId = user._id;
   userInfo.setUserInfo({ name: user.name, about: user.about });
   userInfo.setUserAvatar(user.avatar);
 
@@ -63,8 +59,7 @@ api.getUserInfo().then(function (user) {
               image: item.link,
               ownerId: item.owner._id,
               cardId: item._id,
-              likes: item.likes,
-              popupImage
+              likes: item.isLiked,
             },
             popupImage,
             api,
@@ -105,13 +100,18 @@ const popupEditProfile = new PopupWithForm("#edit-profile", (formData) => {
       profileAbout.textContent = res.about;
       popupEditProfile.close();
     })
-
     .catch((err) =>
       console.log(err))
-    .finally(() => {
-      renderLoading(false, saveButton)
-    });
-});
+    .finally(() =>
+      renderLoading(false, saveButton))
+    },
+      {
+        title: "Editar Perfil",
+        placeholders: ["Nombre", "Ocupación"],
+        inputNames: ["first", "second"],
+        buttonText: "Guardar"
+      }
+    );
 
 popupEditProfile.setEventListeners();
 
@@ -139,12 +139,18 @@ const popupAddCard = new PopupWithForm("#add-card", (formData) => {
       popupAddCard.close();
     })
     .catch((err) => console.log(err))
-    .finally(() => {
-      renderLoading(false, saveButton, "Agregar");
-    });
-});
-
+    .finally(() => 
+      renderLoading(false, saveButton, "Agregar"));
+    },
+      {
+        title: "Nuevo Lugar",
+        placeholders: ["Lugar", "Enlace a la imagen"],
+        inputNames: ["name", "link"],
+        buttonText: "Agregar"
+      }
+    );
 popupAddCard.setEventListeners();
+
 
 // Instancia de Popup para cambiar avatar
 const popupEditAvatar = new PopupWithForm('#popup-change-avatar', (formData) => {
@@ -158,81 +164,69 @@ const popupEditAvatar = new PopupWithForm('#popup-change-avatar', (formData) => 
 
     })
     .catch((err) => console.log(err))
-    .finally(() => {
-      renderLoading(false, saveButton);
-    });
-});
+    .finally(() => 
+      renderLoading(false, saveButton));
+    },
+      {
+        title: "Cambiar foto de perfil",
+        placeholders: ["Enlace nueva foto de perfil"],
+        inputNames: ["avatar"],
+        buttonText: "Guardar"
+      }
+    );
 
 popupEditAvatar.setEventListeners();
 
 // Abrir los popup 
 document.querySelector("#edit-button").addEventListener("click", () => {
-  popupEditProfile.setFormConfig(editProfileConfig);
   popupEditProfile.open();
-  initValidation();
+  popupEditProfile.initValidation();
+
 });
 
 document.querySelector(".profile__add-button").addEventListener("click", () => {
-  popupAddCard.setFormConfig(addCardConfig);
   popupAddCard.open();
-  initValidation();
+  popupAddCard.initValidation();
+
 });
 
 document.querySelector(".profile__avatar-edit-icon").addEventListener("click", () => {
-  popupEditAvatar.setFormConfig(changeAvatarConfig);
   popupEditAvatar.open();
-  initValidation();
+  popupEditAvatar.initValidation();
+
 });
 
 
 
-
-// Instancia del validador de formularios
-const formValidator = new FormValidator(".popup__form", {
-  inputSelector: ".popup__input",
-  submitButtonSelector: ".popup__button",
-  inactiveButtonClass: "popup__button_disabled",
-  inputErrorClass: "popup__input-error"
+// Config de validación para editar perfil
+const validationConfigEdit = new FormValidator("#popup-form-edit-profile", {
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__button',
+  inactiveButtonClass: 'popup__button_disabled',
+  inputErrorClass: 'popup__input-error',
 });
-formValidator.enableValidation();
+validationConfigEdit.enableValidation();
 
-// Configuración de cada formulario
-const editProfileConfig = {
-  title: "Editar Perfil",
-  placeholders: ["Nombre", "Ocupación"],
-  inputNames: ["first", "second"],
-  buttonText: "Guardar"
+// Config de validación para agregar card
+const validationConfigAdd = new FormValidator("#popup-form-add-card", {
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__button',
+  inactiveButtonClass: 'popup__button_disabled',
+  inputErrorClass: 'popup__input-error',
+});
+validationConfigAdd.enableValidation();
 
-};
+// Config de validación para editar avatar
+const validationConfigChangeAvatar = new FormValidator("#popup-form-change-avatar", {
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__button',
+  inactiveButtonClass: 'popup__button_disabled',
+  inputErrorClass: 'popup__input-error',
+});
+validationConfigChangeAvatar.enableValidation();
 
-const addCardConfig = {
-  title: "Nuevo Lugar",
-  placeholders: ["Lugar", "Enlace a la imagen"],
-  inputNames: ["name", "link"],
-  buttonText: "Agregar"
-};
 
-const changeAvatarConfig = {
-  title: "Cambiar foto de perfil",
-  placeholders: ["Enlace nueva foto de perfil"],
-  inputNames: ["avatar"],
-  buttonText: "Guardar"
-}
 
-// Función para inicializar el validador de formularios
-function initValidation() {
-  if (formValidator) {
-    formValidator.enableValidation();
-  } else {
-    formValidator = new FormValidator(".popup__form", {
-      inputSelector: ".popup__input",
-      submitButtonSelector: ".popup__button",
-      inactiveButtonClass: "popup__button_disabled",
-      inputErrorClass: "popup__input-error"
-    });
-    formValidator.enableValidation();
-  }
-}
 
 
 

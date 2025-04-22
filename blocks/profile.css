@@ -17,8 +17,8 @@
 
 .profile__avatar-edit-icon {
   position: absolute;
-  top: 276px;
-  left: 260px;
+  top: 162px;
+  left: 160px;
   width: 120px;
   height: 120px;
   transform: translate(-50%, -50%);
@@ -107,6 +107,20 @@
     border-radius: 50%;
   }
 
+  .profile__avatar-edit-icon {
+    position: absolute;
+    top: 270px;
+    left: 160px;
+    width: 120px;
+    height: 120px;
+    transform: translate(-50%, -50%);
+    border: none;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+  }
+
   .profile__info-name {
     font-family: Inter;
     font-size: 24px;
@@ -170,6 +184,20 @@
     height: 120px;
     margin-left: 200px;
     border-radius: 50%;
+  }
+
+  .profile__avatar-edit-icon {
+    position: absolute;
+    top: 275px;
+    left: 260px;
+    width: 120px;
+    height: 120px;
+    transform: translate(-50%, -50%);
+    border: none;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
   }
 
 
