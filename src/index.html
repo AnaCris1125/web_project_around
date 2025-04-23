@@ -3,19 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="sprint 11 Around the US" />
+    <meta name="description" content="sprint 12 Around the US" />
     <meta name="author" content="Ana Cristina Mejia Lalinde" />
     <meta name="keywords" content="around" />
     <title>Around the US</title>
-    <link rel="stylesheet" type="text/css" href="./pages/index.css" />
+    <link rel="stylesheet" type="text/css" href="index.css" />
     <link rel="shortcut icon" href="favicon.ico" />
   </head>
   <body>
     <div class="page">
       <header class="header">
-        <img src="./images/logo.png" alt="vector around" class="header__image" />
+        <img src="../images/logo.png" alt="vector around" class="header__image" />
         <img
-          src="./images/line.png"
+          src="../images/line.png"
           alt="imagen linea"
           class="header__image-line"
         />
@@ -24,14 +24,14 @@
         <section class="profile">
           <div class="profile__avatar-container">
             <img
-            src="./images/avatar.png"
+            src="../images/avatar.png"
             alt="foto de perfil"
             class="profile__avatar"
             id="avatar"
             loading="lazy"
           />
           <button class="profile__avatar-edit-icon">
-            <img src="/images/edit-avatar.png" alt="Icono editar">
+            <img src="../images/edit-avatar.png" alt="Icono editar">
           </button>
           </div>     
           <div class="profile__info">
@@ -39,14 +39,14 @@
               <p class="profile__info-name" id="name"></p>
               <img
                 class="profile__edit-button"
-                src="./images/editar.png"
+                src="../images/editar.png"
                 alt="Icono editar perfil"
                 id="edit-button"
               />
             </div>
             <p class="profile__info-ocupation" id="about"></p>
             <img
-              src="./images/agregar.png"
+              src="../images/agregar.png"
               alt="icono adicionar informacion"
               class="profile__add-button"
             />
@@ -57,13 +57,13 @@
             <ul class="cards__list"></ul>
             <template id="card-template">
               <div class="cards__item">
-                <img class="cards__item-delete" src="./images/trash.svg" alt="Icono eliminar">
+                <img class="cards__item-delete" src="../images/trash.svg" alt="Icono eliminar">
                 <img class="cards__item-img" src=" " alt="Foto de referencia">
                 <div class="cards__item-info">
                   <p class="cards__item-name"></p>
                   <img
                   class="cards__item-like"
-                  src="./images/group.svg"
+                  src="../images/group.svg"
                   alt="Boton like"  
                   loading="lazy"
                 />
@@ -79,7 +79,7 @@
     </div>  
    <section class="popup" id="edit-profile">
     <div class="popup__container">
-      <img class="popup-close" id="popup-close" src="./images/close.svg" alt="icono cerrar formulario">
+      <img class="popup-close" id="popup-close" src="../images/close.svg" alt="icono cerrar formulario">
       <form class="popup__form" id="popup-form-edit-profile" name="edit-profile" novalidate>
           <h2 class="popup__form-title"></h2>
           <input class="popup__input popup__form-first" id="first" name="first" minlength="2" maxlength="40" required>
@@ -92,7 +92,7 @@
    </section>
    <section class="popup" id="add-card">
     <div class="popup__container">
-      <img class="popup-close" id="popup-close" src="./images/close.svg" alt="icono cerrar formulario">
+      <img class="popup-close" id="popup-close" src="../images/close.svg" alt="icono cerrar formulario">
       <form class="popup__form" id="popup-form-add-card" name="add-card" novalidate>
           <h2 class="popup__form-title"></h2>
           <input class="popup__input popup__form-first" type="text" id="name"  name="name" minlength="2" maxlength="40" required>
@@ -104,14 +104,14 @@
     </div>
    </section>
    <section id="bigimage" class="bigimage">
-    <img class="bigimage-close" src="./images/close.svg" alt="Icono cerrar imagen">
+    <img class="bigimage-close" src="../images/close.svg" alt="Icono cerrar imagen">
     <div class="bigimage__form">
       <img class="bigimage-ils" src=" " alt="Foto de referencia">
       <p class="bigimage-title"></p>
     </div>
    </section>
    <section class="popup" id="popup-change-avatar">
-    <img class="popup-close" src="./images/close.svg" alt="Icono cerrar imagen">
+    <img class="popup-close" src="../images/close.svg" alt="Icono cerrar imagen">
     <form class="popup__form" id="popup-form-change-avatar" name="change-avatar" novalidate>
       <h2 class="popup__form-title"></h2>
       <input class="popup__input" name="avatar" id="avatar" type="url" placeholder="Enlace al avatar" minlength="2" maxlength="40" required>
@@ -120,12 +120,12 @@
     </form>
    </section>
    <section class="popup" id="popup-delete-card">
-    <img class="popup-close" src="./images/close.svg" alt="Icono cerrar imagen">
+    <img class="popup-close" src="../images/close.svg" alt="Icono cerrar imagen">
     <form class="popup__form" id="delete-card-form" novalidate>
       <h2 class="popup__form-title">¿Estas seguro?</h2>
       <button class="popup__button" type="submit">Si</button>
     </form>
    </section>
-    <script src="./pages/index.js" type="module"></script>
+    <script src="index.js" type="module"></script>
   </body>
 </html>
