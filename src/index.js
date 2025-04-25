@@ -59,7 +59,7 @@ api.getUserInfo().then(function (user) {
               image: item.link,
               ownerId: item.owner._id,
               cardId: item._id,
-              likes: item.isLiked,
+              isLiked: item.isLiked
             },
             popupImage,
             api,
@@ -180,19 +180,19 @@ popupEditAvatar.setEventListeners();
 // Abrir los popup 
 document.querySelector("#edit-button").addEventListener("click", () => {
   popupEditProfile.open();
-  popupEditProfile.initValidation();
+  validationConfigEdit.resetValidation();
 
 });
 
 document.querySelector(".profile__add-button").addEventListener("click", () => {
   popupAddCard.open();
-  popupAddCard.initValidation();
+  validationConfigAdd.resetValidation();
 
 });
 
 document.querySelector(".profile__avatar-edit-icon").addEventListener("click", () => {
   popupEditAvatar.open();
-  popupEditAvatar.initValidation();
+  validationConfigChangeAvatar.resetValidation();
 
 });
 

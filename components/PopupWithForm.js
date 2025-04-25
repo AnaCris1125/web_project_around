@@ -27,7 +27,7 @@ export class PopupWithForm extends Popup {
     get submitButton() {
         return this._submitButton;
       }
-
+      
 
     _setFormConfig() {
         const { title, placeholders, inputNames, buttonText } = this._config;

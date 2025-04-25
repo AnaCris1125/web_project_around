@@ -2,18 +2,19 @@ const cardTemplate = document.querySelector("#card-template").content;
 
 
 export default class Card {
-    constructor({ title, image, ownerId, cardId, likes }, popupImage, api, userId, handleDeleteClick) {
+    constructor({ title, image, ownerId, cardId, isLiked }, popupImage, api, userId, handleDeleteClick) {
         this._title = title;
         this._image = image;
         this._ownerId = ownerId;
         this._cardId = cardId;
-        this._likes = Array.isArray(likes) && likes.every(like => like && like._id) ? likes : [];
+        this._isLiked = isLiked; 
         this._popupImage = popupImage;
         this._api = api;
         this._userId = userId;
         this._handleDeleteClick = handleDeleteClick;
-
+       
     }
+    
 
 
     _cloneTemplate() {
@@ -30,13 +31,8 @@ export default class Card {
         this.cardImage.alt = this._title;
         this.cardTitle.textContent = this._title;
 
-        this._updateLikeState(this._likes);
-
-        // Ocultar botón de eliminar si no es del usuario actual
-        if (this._ownerId !== this._userId) {
-            this.deleteButton.style.display = "none";
-        }
-
+        this._updateLikeState();
+       
     }
 
     generateCard() {
@@ -53,14 +49,16 @@ export default class Card {
 
             if (isLiked) {
                 this._api.removeLike(this._cardId)
-                    .then((res) => {       
-                        this._updateLikeState(res.likes);
+                    .then((res) => {
+                        this._isLiked = res.isLiked;     
+                        this._updateLikeState();
                     })
                     .catch((err) => console.log(err));
             } else {
                 this._api.addLike(this._cardId)
                     .then((res) => {
-                        this._updateLikeState(res.likes);
+                        this._isLiked = res.isLiked;
+                        this._updateLikeState();
                     })
                     .catch((err) => console.log(err));
             }
@@ -78,9 +76,8 @@ export default class Card {
     }
 
     // Método que actualiza el estado del like
-    _updateLikeState(isLiked) {
-        const likedByUser = isLiked;
-        this.likeButton.classList.toggle("cards__item-like_active", likedByUser);
+    _updateLikeState() {
+        this.likeButton.classList.toggle("cards__item-like_active", this._isLiked);
     }
 
     getHtmlCard() {
